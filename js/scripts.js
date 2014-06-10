@@ -9,8 +9,9 @@ $(function() {
 		template('templates/quotes.html', data, function(template) {
 	         $("#template-quotes").html(template).promise().done(function(){
 			        $(this).cycle({
-			        	slides: '> div',
-			        	fx:      'fadein'
+			        	slides: 	'> div',
+			        	fx: 		'fade',
+			        	speed: 		'1200', 
 			        });
 			 });
 	    });
