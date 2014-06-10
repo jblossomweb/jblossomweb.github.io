@@ -4,14 +4,23 @@
    Author's custom styles
    ========================================================================== */
 
+/*html,body{
+	background:#000;
+	color:#eee;
+}
 
 
+.panel-default .panel-heading{
+	background: #444;
+	color:#fff;
+}
+*/
 #template-quotes .quote{
 	width:100%;
 }
 
-blockquote{
-	font-size:.5em;
+#template-quotes blockquote{
+	font-size:.8em;
 }
 
 
