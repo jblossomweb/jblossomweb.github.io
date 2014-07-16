@@ -4,17 +4,27 @@
    Author's custom styles
    ========================================================================== */
 
-/*html,body{
-	background:#000;
-	color:#eee;
+html,body,h1,h1 small{
+	font-family: 'Open Sans', sans-serif;
 }
 
-
-.panel-default .panel-heading{
-	background: #444;
-	color:#fff;
+h1{
+	font-weight:700;
 }
-*/
+
+.page-header {
+	padding-bottom: 0px;
+	margin: 28px 0 20px;
+}
+
+#template-carousel{
+	display:none;
+}
+
+#template-quotes{
+	display:none;
+}
+
 #template-quotes .quote{
 	width:100%;
 }
@@ -23,6 +33,24 @@
 	font-size:.8em;
 }
 
+.circle-logo-32{
+	background-image: url(//lh6.googleusercontent.com/-1DhBDxNbYhY/AAAAAAAAAAI/AAAAAAAAAAA/gAdqpWtOPYA/s32-c/photo.jpg);
+	background-size: 32px 32px;
+	border-radius: 50%;
+	display: block;
+	margin: -1px;
+	height: 32px;
+	width: 32px;
+}
+
+.navbar-default {
+	background-color: #000;
+}
+
+blockquote.pull-right{
+	border-right:0px;
+	padding-left:15px;
+}
 
 
 

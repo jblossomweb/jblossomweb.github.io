@@ -1,5 +1,4 @@
 $(function() {
-
 	template('templates/navbar.html', {brand: "John Blossom"}, function(template) {
          $("#template-navbar").html(template);
     });
@@ -8,26 +7,25 @@ $(function() {
          $("#template-header").html(template);
     });
 
-    template('templates/carousel.html', {name: "John Blossom"}, function(template) {
-         $("#template-carousel").html(template).hide();
-    });
+    $.get( jbzzle_api_url+"resume/portfolio", function(data) {
+		template('templates/carousel.html', {items:data}, function(template) {
+			$("#template-carousel").html(template);
+		});
+	}, "json");
 
-	$.get( jbzzle_api_url+"resume/testimonials", function( data ) {
+	$.get( jbzzle_api_url+"resume/testimonials", function(data) {
 		template('templates/quotes.html', data, function(template) {
-	         $("#template-quotes").html(template).promise().done(function(){
-			        $(this).cycle({
+	         $("#template-quotes").html(template).cycle({
 			        	slides: 	'> div',
 			        	fx: 		'fade',
-			        	speed: 		'5000', 
-			        }).hide();
+			        	speed: 		'8000', 
 			 });
 	    });
-	}, "json" );
+	}, "json");
 
 });
 
 $( window ).load(function() {
-  // Run code
   $("#template-carousel").fadeIn("500",function(){
   		$("#template-quotes").show("250");
   });
