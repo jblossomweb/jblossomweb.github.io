@@ -52,13 +52,13 @@ blockquote.pull-right{
 	padding-left:15px;
 }
 
+#skills-accordion .skill{
+	text-align:center;
+	padding-top:14px;
+	padding-bottom:14px;
+}
 
-
-
-
-
-
-
-
-
-
+.panel-title i.fa{
+	width:20px;
+	margin-right:18px;
+}
