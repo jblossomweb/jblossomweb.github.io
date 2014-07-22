@@ -48,12 +48,18 @@ jbApp.prototype.loadPage = function(page){
 	var app = this;
 	if($.inArray(page,app.loaded) === -1){
 		switch(page){
+			//http://ci-jbzzle.rhcloud.com/resume/skills
 			case 'skills':
-				app.getTemplate('templates/skills.html', {}, function(template) {
-					$("#template-skills").html(template);
-					var element = $("#template-skills").find(".dots");
-					app.initDots(element,4,150);
-				});
+				$.get(app.apiURL+"resume/skills", function(data) {
+					app.getTemplate('templates/skills.html', {skills:data}, function(template) {
+						$("#template-skills").html(template);
+						var element = $("#template-skills").find(".dots");
+						app.initDots(element,4,150);
+					});
+				}, "json");
+
+
+				
 			break;
 			case 'experience':
 				app.getTemplate('templates/experience.html', {}, function(template) {

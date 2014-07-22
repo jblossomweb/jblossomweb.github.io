@@ -1,6 +1,34 @@
 <div class="panel-group" id="skills-accordion">
-  
-  <div class="panel panel-default">
+ 
+{{#each sets}}
+  <div class="panel skillset {{key}} panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#skills-accordion" href="#skills-accordion-{{key}}">
+          <i class="fa {{fa-icon}}"></i> {{name}}
+        </a>
+      </h4>
+    </div>
+    <div id="skills-accordion-{{key}}" class="panel-collapse collapse">
+      <div class="panel-body">
+        
+        {{#each skills}}
+        <div class="col-md-3 skill">
+          <a target="_blank" href="{{url}}">
+            <img src="img/logos/{{img}}" alt="{{name}}" title="{{name}}" />
+          </a>
+          <br>{{name}}
+        </div>
+        {{/each}}
+        
+      </div>
+    </div>
+  </div>
+{{/each}}
+
+<!-- static content
+
+  <div class="panel skillset panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#skills-accordion" href="#skills-accordion-frontend">
@@ -74,7 +102,7 @@
     </div>
   </div>
 
-  <div class="panel panel-default">
+  <div class="panel skillset panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#skills-accordion" href="#skills-accordion-backend">
@@ -145,7 +173,7 @@
     </div>
   </div>
 
-  <div class="panel panel-default">
+  <div class="panel skillset panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#skills-accordion" href="#skills-accordion-frameworks">
@@ -175,7 +203,7 @@
     </div>
   </div>
 
-  <div class="panel panel-default">
+  <div class="panel skillset panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#skills-accordion" href="#skills-accordion-plugins">
@@ -210,7 +238,7 @@
     </div>
   </div>
 
-  <div class="panel panel-default">
+  <div class="panel skillset panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#skills-accordion" href="#skills-accordion-apis">
@@ -246,7 +274,7 @@
     </div>
   </div>
 
-  <div class="panel panel-default">
+  <div class="panel skillset panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#skills-accordion" href="#skills-accordion-cli">
@@ -282,7 +310,7 @@
     </div>
   </div>
 
-  <div class="panel panel-default">
+  <div class="panel skillset panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#skills-accordion" href="#skills-accordion-code">
@@ -318,7 +346,7 @@
     </div>
   </div>
 
-  <div class="panel panel-default">
+  <div class="panel skillset panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#skills-accordion" href="#skills-accordion-wpm">
@@ -354,7 +382,7 @@
     </div>
   </div>
 
-  <div class="panel panel-default">
+  <div class="panel skillset panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#skills-accordion" href="#skills-accordion-learning">
@@ -411,5 +439,5 @@
       </div>
     </div>
   </div>
-
+-->
 </div>
