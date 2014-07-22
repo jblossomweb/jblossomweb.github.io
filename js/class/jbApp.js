@@ -51,10 +51,11 @@ jbApp.prototype.loadPage = function(page){
 			//http://ci-jbzzle.rhcloud.com/resume/skills
 			case 'skills':
 				$.get(app.apiURL+"resume/skills", function(data) {
+					console.log(data);
 					app.getTemplate('templates/skills.html', {skills:data}, function(template) {
 						$("#template-skills").html(template);
-						var element = $("#template-skills").find(".dots");
-						app.initDots(element,4,150);
+						//var element = $("#template-skills").find(".dots");
+						//app.initDots(element,4,150);
 					});
 				}, "json");
 
