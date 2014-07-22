@@ -62,3 +62,11 @@ blockquote.pull-right{
 	width:20px;
 	margin-right:18px;
 }
+
+div.skill a{
+	text-decoration: none;
+}
+div.skill a img{
+	text-decoration: none;
+	border:0;
+}
