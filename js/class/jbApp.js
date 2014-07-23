@@ -52,9 +52,12 @@ jbApp.prototype.loadPage = function(page){
 			case 'skills':
 				$.get(app.apiURL+"resume/skills", function(data) {
 					app.getTemplate('templates/skills.html', {sets:data}, function(template) {
-						$("#template-skills").html(template);
-						//var element = $("#template-skills").find(".dots");
-						//app.initDots(element,4,150);
+						var container = $("#template-skills");
+						container.html(template);
+						var anchor = container.find("a[href='#skills-accordion-learning']");
+						anchor.html(anchor.html().replace("Learning...","Learning<span class='dots'></span>"));
+						var element = anchor.find(".dots");
+						app.initDots(element,4,150);
 					});
 				}, "json");
 
