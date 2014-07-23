@@ -1,181 +1,20 @@
 <div class="panel-group" id="experience-accordion">
   
+  	{{#each experience}}
 	<div class="panel panel-default">
 
 	    <div class="panel-heading">
 	      <h4 class="panel-title">
-	        <a data-toggle="collapse" data-parent="#experience-accordion" href="#experience-accordion-1">
-	          <i class="fa fa-wrench"></i> Senior Web Developer, Cinema Equipment and Supplies
+	        <a data-toggle="collapse" data-parent="#experience-accordion" href="#experience-accordion-{{id}}">
+	          <i class="fa {{fa-icon}}"></i> {{title}}, {{company}}
 	        </a>
+	        <span class="badge"><i class="fa fa-spinner fa-spin"></i></span>
 	      </h4>
 	    </div>
-	    <div id="experience-accordion-1" class="panel-collapse collapse">
-	      <div class="panel-body">
-		      	<div class="col-md-1 logo">
-		      		<img src="img/logos/ces.png" alt="CE+S" title="CE+S" />
-		          	<br>Miami, FL
-		      	</div>
-		      	<div class="col-md-11 bullets">
-		      		<ul>
-		      			<li>Worked on small team to build patented cloud-based theatre monitoring/management software.</li>
-		      			<li>Quickly adapted to project in progress, continued work of departing developer, refactored code as needed.</li>
-		      			<li>Tracked down and fixed difficult to trace bugs and optimized unforseen performance issues.</li>
-		      			<li>Built Support module, integrated Zendesk API, cached data, wrote driver class to support platforms such as SalesForce Desk.</li>
-		      			<li>Built secure Admin panel when immediate need arose for an interim solution to convert leads and edit customer data.</li>
-		      			<li>Added email templates to application, used Mandrill SMTP for system emails to ensure delivery and track clicks.</li>
-		      			<li>Switched from SVN to GIT, implemented distributed development branches, isolated stable releases for demo/production.</li>
-		      			<li>Ensured smooth deployment/documentation of Apache modules and MySQL structure changes to each environment with code pulls.</li>
-		      			<li>Increased agile sprint velocity and maintained positive burndown despite regular scope creep under deadline.</li>
-		      		</ul>
-		      	</div>
-	    	</div>
+	    <div id="experience-accordion-{{id}}" class="panel-collapse collapse">
+	      <div id="experience-{{id}}" class="panel-body"></div>
 	    </div>
 	</div>
-
-	<div class="panel panel-default">
-
-	    <div class="panel-heading">
-	      <h4 class="panel-title">
-	        <a data-toggle="collapse" data-parent="#experience-accordion" href="#experience-accordion-2">
-	          <i class="fa fa-wrench"></i> Software Developer, VMR Products
-	        </a>
-	      </h4>
-	    </div>
-	    <div id="experience-accordion-2" class="panel-collapse collapse">
-	      	<div class="panel-body">
-	      		<div class="col-md-1 logo">
-	      		<img src="img/logos/vmr.png" alt="VMR Products" title="VMR Products" />
-	          	<br>Miami, FL
-	      		</div>
-	      		<div class="col-md-11 bullets">
-	      		<ul>
-	      			<li>Developed just-in-time software solutions as part of a fast-paced, industry-leading e-commerce effort.</li>
-	      			<li>Worked on team of engineers and marketing professionals, using PHP, Interspire, Magento, and LightSpeed Retail.</li>
-	      			<li>Customized Magento modules for back-end functionality, and cross-browser skins for front-end UI.</li>
-	      			<li>Wrote scripts to push bulk data to MailChimp, geo-targeted email campaigns by shipping info.</li>
-	      			<li>Customized Atlassian JIRA workflow, migrated from BaseCamp, integrated GIT commit tracking with JIRA tickets.</li>
-	      			<li>Built custom POS middleware to integrate Kiosk with payment gateway, iPad app, and web systems.</li>
-	      			<li>Wrote custom software for customer surveys, product rewards, and A/B testing campaigns.</li>
-	      			<li>Introduced agile concepts, demonstrated sprints, educated management on relevant artifacts.</li>
-	      			<li>Worked with team in Czech Republic to localize content and deploy special business logic.</li>
-	      		</ul>
-	      		</div>
-	    	</div>
-	    </div>
-	</div>
-
-	<div class="panel panel-default">
-
-	    <div class="panel-heading">
-	      <h4 class="panel-title">
-	        <a data-toggle="collapse" data-parent="#experience-accordion" href="#experience-accordion-3">
-	          <i class="fa fa-wrench"></i> Senior PHP Developer, Bonnier Corporation
-	        </a>
-	      </h4>
-	    </div>
-	    <div id="experience-accordion-3" class="panel-collapse collapse">
-	      	<div class="panel-body">
-	      		<div class="col-md-1 logo">
-	      		<img src="img/logos/bonnier.png" alt="Bonnier Corporation" title="Bonnier Corporation" />
-	          	<br>Winter Park, FL
-	      		</div>
-	      		<div class="col-md-11 bullets">
-	      		<ul>
-	      			<li>On contract, helped to support web sites for circulating periodicals in a senior PHP developer role.</li>
-	      			<li>Developed, ported, and/or supported custom modules in Wordpress and Drupal 6/7.</li>
-	      			<li>Self-managed branching and deployment with Mantis and SVN, on a large team of junior developers.</li>
-	      			<li>Synchronized, cleaned multiple-level SVN environments, in preparation for new branching strategy.</li>
-	      			<li>Fixed front-end bugs and performance issues as they arose.</li>
-	      		</ul>
-	      		</div>
-	    	</div>
-	    </div>
-	</div>
-
-	<div class="panel panel-default">
-
-	    <div class="panel-heading">
-	      <h4 class="panel-title">
-	        <a data-toggle="collapse" data-parent="#experience-accordion" href="#experience-accordion-4">
-	          <i class="fa fa-wrench"></i> ColdFusion Developer, Visit Orlando
-	        </a>
-	      </h4>
-	    </div>
-	    <div id="experience-accordion-4" class="panel-collapse collapse">
-	      	<div class="panel-body">
-	      		<div class="col-md-1 logo">
-	      		<img src="img/logos/visitorlando.png" alt="Visit Orlando" title="Visit Orlando" />
-	          	<br>Orlando, FL
-	      		</div>
-	      		<div class="col-md-11 bullets">
-	      		<ul>
-	      			<li>Worked very briefly on the software development team, fixing bugs, and providing input.</li>
-	      			<li>Completed sprint tickets/cards easily within the first few days of joining team.</li>
-	      			<li>Participated in agile scrum standups/sprints, contributed to problem solving discussions.</li>
-	      			<li>Regretfully had to leave due to a family health emergency.</li>
-	      		</ul>
-	      		</div>
-	    	</div>
-	    </div>
-	</div>
-
-	<div class="panel panel-default">
-
-	    <div class="panel-heading">
-	      <h4 class="panel-title">
-	        <a data-toggle="collapse" data-parent="#experience-accordion" href="#experience-accordion-5">
-	          <i class="fa fa-wrench"></i> Senior PHP Developer, FlexOffers.com
-	        </a>
-	      </h4>
-	    </div>
-	    <div id="experience-accordion-5" class="panel-collapse collapse">
-	      	<div class="panel-body">
-	      		<div class="col-md-1 logo">
-	      		<img src="img/logos/flexoffers.png" alt="FlexOffers" title="FlexOffers" />
-	          	<br>Miami, FL
-	      		</div>
-	      		<div class="col-md-11 bullets">
-	      		<ul>
-	      			<li>Wordpress project lead; worked with developers, designers, editors, sales, network engineers, QA, and CEO.</li>
-	      			<li>Developed custom PHP/MySQL web application to run in secure Windows / IIS7 environments.</li>
-	      			<li>Managed SVN repositories, wrote/reviewed code, encouraged portable OOP / MVC conventions.</li>
-	      			<li>Consumed SOAP feeds via custom MVC Wordpress plugin, automating product management.</li>
-	      			<li>Integrated CodeIgniter front-end for custom database, retained Wordpress admin GUI for editors.</li>
-	      			<li>Hand-coded HTML5, CSS, Javascript, jQuery, and AJAX, from layered Photoshop documents.</li>
-	      			<li>Worked with Brazil SEO team, trained editors and managers to use system.</li>
-	      			<li>example project: <a href="http://www.cardoffers.com/" target="_blank">http://www.cardoffers.com/</a></li>
-
-	      		</ul>
-	      		</div>
-	    	</div>
-	    </div>
-	</div>
-
-	<div class="panel panel-default">
-
-	    <div class="panel-heading">
-	      <h4 class="panel-title">
-	        <a data-toggle="collapse" data-parent="#experience-accordion" href="#experience-accordion-6">
-	          <i class="fa fa-wrench"></i> PHP Developer, Global Personals Media
-	        </a>
-	      </h4>
-	    </div>
-	    <div id="experience-accordion-6" class="panel-collapse collapse">
-	      	<div class="panel-body">
-	      		<div class="col-md-1 logo">
-	      		<img src="img/logos/globalpersonals.png" alt="Global Personals" title="Global Personals" />
-	          	<br>Miami Beach, FL
-	      		</div>
-	      		<div class="col-md-11 bullets">
-	      		<ul>
-	      			<li>Back-end development, QA, support, and bug fixes for online dating sites.</li>
-	      			<li>Collaborated with teams in California, New York, and Miami.</li>
-	      			<li>Extended functionality to iPad and Facebook apps.</li>
-	      			<li>Worked with memcache, sphinx, and other performance technologies.</li>
-	      		</ul>
-	      		</div>
-	    	</div>
-	    </div>
-	</div>
+	{{/each}}
 
 </div>

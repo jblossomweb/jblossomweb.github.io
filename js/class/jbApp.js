@@ -49,7 +49,7 @@ jbApp.prototype.loadPage = function(page){
 	if($.inArray(page,app.loaded) === -1){
 		switch(page){
 			case 'skills':
-				var tabsloaded = [];
+				var skills_tab = [];
 				$.get(app.apiURL+"resume/skills", function(data) {
 					app.getTemplate('templates/skillsets.html', {sets:data}, function(template) {
 						var container = $("#template-skills");
@@ -76,11 +76,10 @@ jbApp.prototype.loadPage = function(page){
 							
 							openPanels.collapse('hide');
 
-							if($.inArray(p,tabsloaded) === -1){
+							if($.inArray(p,skills_tab) === -1){
 								spinner.css("visibility","visible");
 								$.get(app.apiURL+"resume/skills/"+ssid, function(sdata) {
-									tabsloaded.push(p);
-									sdata = $.parseJSON(sdata);
+									skills_tab.push(p);
 									app.getTemplate('templates/skills.html', {skills:sdata}, function(t) {
 										pbody.html(t);
 										var imgs = pbody.find("img");
@@ -89,15 +88,10 @@ jbApp.prototype.loadPage = function(page){
 											panel.collapse('show');
 										});
 									});
-
-									
-								});
+								},"json");
 							} else {
 									panel.collapse('show');
 							}
-							
-
-
 						});
 
 					});
@@ -107,9 +101,46 @@ jbApp.prototype.loadPage = function(page){
 				
 			break;
 			case 'experience':
-				app.getTemplate('templates/experience.html', {}, function(template) {
-					$("#template-experience").html(template);
-				});
+				// app.getTemplate('templates/experience.html', {}, function(template) {
+				// 	$("#template-experience").html(template);
+				// });
+				var experience_tab = [];
+				$.get(app.apiURL+"resume/experience", function(data) {
+					app.getTemplate('templates/experience.html', {experience:data}, function(template) {
+						$("#template-experience").html(template);
+
+						$("#experience-accordion .panel-heading").on('click', function(e){
+							var heading = $(this);
+							var a = heading.children(".panel-title").children("a");
+							var spinner = heading.children(".panel-title").children("span.badge");
+							var p = a.attr("href");
+							var panel =$(p);
+							var openPanels = $("#experience-accordion .panel-collapse.collapse.in");
+							var panelHeadings = $("#experience-accordion .panel-heading");
+							var pbody = panel.children(".panel-body");
+							var exid = pbody.attr('id').substr(11);
+							
+							openPanels.collapse('hide');
+
+							if($.inArray(p,experience_tab) === -1){
+								spinner.css("visibility","visible");
+								$.get(app.apiURL+"resume/experience/"+exid, function(edata) {
+									experience_tab.push(p);
+									app.getTemplate('templates/experience_details.html', edata, function(t) {
+										pbody.html(t);
+										var imgs = pbody.find("img");
+										imgs.load(function() {
+											spinner.css("visibility","hidden");
+											panel.collapse('show');
+										});
+									});
+								},"json");
+							} else {
+									panel.collapse('show');
+							}
+						});
+					});
+				},"json");
 			break;
 			case 'contact':
 				app.getTemplate('templates/contact.html', {}, function(template) {
