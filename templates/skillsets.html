@@ -1,0 +1,19 @@
+<div class="panel-group" id="skills-accordion">
+ 
+{{#each sets}}
+  <div class="panel skillset {{key}} panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#skills-accordion" href="#skills-accordion-{{key}}">
+          <i class="fa {{fa-icon}}"></i> {{name}}
+        </a>
+        <span class="badge"><i class="fa fa-spinner fa-spin"></i></span>
+      </h4>
+    </div>
+    <div id="skills-accordion-{{key}}" class="panel-collapse collapse panel-{{key}}">
+      <div id="skillset-{{id}}" class="panel-body"></div>
+    </div>
+  </div>
+{{/each}}
+
+</div>

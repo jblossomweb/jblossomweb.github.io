@@ -48,16 +48,58 @@ jbApp.prototype.loadPage = function(page){
 	var app = this;
 	if($.inArray(page,app.loaded) === -1){
 		switch(page){
-			//http://ci-jbzzle.rhcloud.com/resume/skills
 			case 'skills':
+				var tabsloaded = [];
 				$.get(app.apiURL+"resume/skills", function(data) {
-					app.getTemplate('templates/skills.html', {sets:data}, function(template) {
+					app.getTemplate('templates/skillsets.html', {sets:data}, function(template) {
 						var container = $("#template-skills");
 						container.html(template);
 						var anchor = container.find("a[href='#skills-accordion-learning']");
 						anchor.html(anchor.html().replace("Learning...","Learning<span class='dots'></span>"));
-						var element = anchor.find(".dots");
-						app.initDots(element,4,150);
+						var dots = anchor.find(".dots");
+						app.initDots(dots,4,150);
+
+						// $("#skills-accordion .panel-title, .panel-title a").click(function(e){
+						// 	e.preventDefault();
+						// });
+
+						$("#skills-accordion .panel-heading").on('click', function(e){
+							var heading = $(this);
+							var a = heading.children(".panel-title").children("a");
+							var spinner = heading.children(".panel-title").children("span.badge");
+							var p = a.attr("href");
+							var panel =$(p);
+							var openPanels = $("#skills-accordion .panel-collapse.collapse.in");
+							var panelHeadings = $("#skills-accordion .panel-heading");
+							var pbody = panel.children(".panel-body");
+							var ssid = pbody.attr('id').substr(9);
+							
+							openPanels.collapse('hide');
+
+							if($.inArray(p,tabsloaded) === -1){
+								spinner.css("visibility","visible");
+								$.get(app.apiURL+"resume/skills/"+ssid, function(sdata) {
+									tabsloaded.push(p);
+									sdata = $.parseJSON(sdata);
+									app.getTemplate('templates/skills.html', {skills:sdata}, function(t) {
+										pbody.html(t);
+										var imgs = pbody.find("img");
+										imgs.load(function() {
+											spinner.css("visibility","hidden");
+											panel.collapse('show');
+										});
+									});
+
+									
+								});
+							} else {
+									panel.collapse('show');
+							}
+							
+
+
+						});
+
 					});
 				}, "json");
 

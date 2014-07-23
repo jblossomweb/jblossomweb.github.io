@@ -70,3 +70,24 @@ div.skill a img{
 	text-decoration: none;
 	border:0;
 }
+
+.panel-heading:hover{
+	background-color:#585858;
+	/*background-color:#28415b;*/
+}
+
+/*.panel-heading.active{
+	background-color:#28415b;
+}*/
+
+.panel-heading{
+	cursor:pointer;
+}
+
+.panel-heading .badge{
+	visibility: hidden;
+	background:transparent;
+}
+.panel-title a{
+	text-decoration: none;
+}
