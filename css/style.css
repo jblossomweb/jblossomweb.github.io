@@ -91,3 +91,30 @@ div.skill a img{
 .panel-title a{
 	text-decoration: none;
 }
+
+.navbar-header{
+	position:relative;
+}
+
+.navbar-load{
+	visibility:hidden;
+	position: relative;
+	float: right;
+	margin-right: 15px;
+	padding: 9px 10px;
+	margin-top: 13px;
+	background-color: transparent;
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+	.navbar-load{
+		margin-right:58px;
+		padding: 0px;
+		margin-top: -36px;
+	}
+}
+
+#template-navbar{
+	margin-top:-80px;
+}

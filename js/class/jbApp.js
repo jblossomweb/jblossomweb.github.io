@@ -2,24 +2,29 @@ var jbApp = function() {
   // constructor
   this.apiURL = jbzzle_api_url; //global set in api.js
   this.loaded = [];
+  this.homeload = [];
   this.defineEvents();
 };
 jbApp.prototype.domReady = function(){
-	//init 
-	this.getTemplate('templates/navbar.html', {brand: "John Blossom"}, function(template) {
-         $("#template-navbar").html(template);
-    });
-
-	this.getTemplate('templates/header.html', {name: "John Blossom",occupation:"Web Developer"}, function(template) {
-         $("#template-header").html(template);
-    });
-
-	this.loadPage('home');
 };
 jbApp.prototype.windowLoad = function(){
-	$("#template-carousel").fadeIn("500",function(){
-  		$("#template-quotes").show("250");
-  });
+	var app = this;
+	app.getTemplate('templates/navbar.html', {brand: "John Blossom"}, function(template) {
+        $("#template-navbar").html(template).animate({
+			marginTop: 0
+			}, 250, function() {
+			// Animation complete.
+			app.Navigate('home',function(){
+				$("#template-carousel").fadeIn("500",function(){
+				  	$("#template-quotes").show("250");
+				});
+			});
+		});
+        
+    });
+	app.getTemplate('templates/header.html', {name: "John Blossom",occupation:"Web Developer"}, function(template) {
+         $("#template-header").html(template);
+    });
 };
 jbApp.prototype.defineEvents = function(){
 	//events
@@ -47,6 +52,8 @@ jbApp.prototype.Navigate = function(page,callback){
 jbApp.prototype.loadPage = function(page){
 	var app = this;
 	if($.inArray(page,app.loaded) === -1){
+		var nload = $("#template-navbar").find(".navbar-load");
+		nload.css("visibility","visible");
 		switch(page){
 			case 'skills':
 				var skills_tab = [];
@@ -94,11 +101,10 @@ jbApp.prototype.loadPage = function(page){
 							}
 						});
 
+						nload.css("visibility","hidden");
+
 					});
 				}, "json");
-
-
-				
 			break;
 			case 'experience':
 				// app.getTemplate('templates/experience.html', {}, function(template) {
@@ -139,19 +145,28 @@ jbApp.prototype.loadPage = function(page){
 									panel.collapse('show');
 							}
 						});
+
+						nload.css("visibility","hidden");
 					});
 				},"json");
 			break;
 			case 'contact':
 				app.getTemplate('templates/contact.html', {}, function(template) {
 					$("#template-contact").html(template);
+					nload.css("visibility","hidden");
 				});
 			break;
 			case 'home':
 			default:
+				var homeload = this.homeload;
+
 				 $.get(app.apiURL+"resume/portfolio", function(data) {
 					app.getTemplate('templates/carousel.html', {items:data}, function(template) {
 						$("#template-carousel").html(template);
+						homeload.push('portfolio');
+						if(homeload.length > 1){
+							nload.css("visibility","hidden");
+						}
 					});
 				}, "json");
 
@@ -162,10 +177,17 @@ jbApp.prototype.loadPage = function(page){
 						        	fx: 		'fade',
 						        	speed: 		'10000', 
 						 });
+						 homeload.push('testimonials');;
+						 if(homeload.length > 1){
+							nload.css("visibility","hidden");
+						}
 				    });
 				}, "json");
+
+
 		}
 		app.loaded.push(page);
+		//
 	}
 };
 jbApp.prototype.getTemplate = function(url, context, callback) {
