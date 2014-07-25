@@ -211,6 +211,8 @@ jbApp.prototype.loadPage = function(page){
 							buttonIcon.removeClass("fa-paper-plane-o").addClass("fa-spin fa-spinner");
 
 							$.ajax({
+								crossDomain : true,
+        						cache: false,
 								type: "POST",
 								url: app.apiURL+"contact",
 								data: {
@@ -239,6 +241,10 @@ jbApp.prototype.loadPage = function(page){
 										inputs.prop("disabled", false);
 									}
 								},
+								error: function(jqxhr) {
+						            console.log('fail');
+						            console.log(JSON.stringify(jqxhr))
+						        },
 								dataType: "json"
 							});
 						}
