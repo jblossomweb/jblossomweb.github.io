@@ -1,0 +1,15 @@
+.container{
+    display:table;
+    width: 100%;
+}
+.row{
+    height: 100%;
+    display: table-row;
+}
+.col-sm-4{
+    display: table-cell;
+}
+
+.page-header{
+  padding-top:40px;
+}
