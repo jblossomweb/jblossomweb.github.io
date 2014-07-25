@@ -118,3 +118,77 @@ div.skill a img{
 #template-navbar{
 	margin-top:-80px;
 }
+
+
+
+label{
+	font-weight:normal !important;
+}
+
+
+
+.h1 small {
+font-size: 24px;
+}
+
+.input-group{
+	width:100%;
+}
+
+/*.input-group label.error{
+	position:absolute;
+	top: -26px;
+	right: 4px;
+	color:red;
+	font-style: italic;
+	z-index: 2;
+}*/
+
+.input-group-addon{
+	background-color: #28415b;
+	width:44px;
+}
+
+.select2-container .select2-choice{
+	height:40px;
+	border-radius:4px;
+}
+
+.form-control{
+	border-radius:4px;
+}
+
+/*.select2-arrow{
+	width:46px !important;
+	background: #28415b !important;
+}
+
+.select2-arrow b{
+	background:transparent !important;
+}*/
+
+.select2-arrow{
+	width:0px !important;
+}
+
+.select2-search-choice-close{
+	display:none !important;
+}
+
+.select2-highlighted{
+	background: #28415b !important;
+}
+
+.select2-chosen{
+	line-height:40px;
+}
+
+.contact-form .alert-success{
+	display:none;
+	margin-top:200px;
+}
+@media only screen and (max-width : 991px) {
+.contact-form .alert-success{
+	margin-top: -50px;
+}
+}

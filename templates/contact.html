@@ -1,1 +1,81 @@
-coming soon
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 contact-form">
+            <form id="frmContact">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">
+                                Name</label>
+                            <div class="input-group">
+                            	<input type="text" class="form-control" name="name" placeholder="Enter name" required="required" />
+                            	<span class="input-group-addon">
+                                	<i class="fa fa-user"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">
+                                Email Address</label>
+                            <div class="input-group">
+                                <input type="email" class="form-control" name="email" placeholder="Enter email" required="required" />
+
+                                <span class="input-group-addon">
+                                	<i class="fa fa-envelope-o"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">
+                                Subject</label>
+                            <div class="input-group">
+                            <select name="subject" class="form-control select2" placeholder="Select subject" required="required">
+                            		<option value=""></option>
+                                	<option value="Job Opportunity">Job Opportunity</option>
+                                	<option value="Other">Other</option>
+                            </select>
+                            <span class="input-group-addon">
+                                	<i class="fa fa-question"></i>
+                                </span>
+                        	</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">
+                                Message</label>
+                            <div class="input-group">
+                            <textarea name="message" class="form-control" rows="9" cols="25" required="required"
+                                placeholder="Message"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary pull-right">
+                            <i class="fa fa-paper-plane-o"></i> Send Message</button>
+                    </div>
+                </div>
+            </form>
+            <div class="alert alert-success"><i class="fa fa-paper-plane-o"></i> Message sent. Thanks! I will reply soon.</div>
+        </div>
+
+        <!--
+        <div class="col-md-4">
+            <legend><span class="glyphicon glyphicon-globe"></span> Contact Me</legend>
+            	
+            <address>
+                <i class="fa fa-linkedin-square"></i> 
+	          	<a target="_blank" href="http://www.linkedin.com/in/jbweb/">LinkedIn</a><br>
+	          	<i class="fa fa-github-square"></i> 
+	          	<a target="_blank" href="http://github.com/jblossomweb">GitHub</a><br>
+	          	<i class="fa fa-bitbucket-square"></i> 
+	          	<a target="_blank" href="http://bitbucket.org/jblossom">BitBucket</a><br>
+	          	<i class="fa fa-tumblr-square"></i> 
+	          	<a target="_blank" href="http://jblossom.tumblr.com">Tumblr</a><br>
+	          	<i class="fa fa-google-plus-square"></i> 
+	          	<a target="_blank" href="http://www.google.com/+JohnBlossomWeb">Google+</a><br>
+            </address>
+        </div>
+    	-->
+    </div>
+</div>

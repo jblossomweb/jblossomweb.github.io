@@ -152,7 +152,98 @@ jbApp.prototype.loadPage = function(page){
 			break;
 			case 'contact':
 				app.getTemplate('templates/contact.html', {}, function(template) {
-					$("#template-contact").html(template);
+					var pg = $("#template-contact");
+					pg.html(template);
+					pg.find('select[name="subject"]').select2({
+						placeholder: "Select subject",
+    					allowClear: true
+					});
+					
+					pg.find("#frmContact").bootstrapValidator({
+						message: 'Please enter a value.',
+						fields: {
+							name: {
+								message: 'Please enter your name.',
+								validators: {
+									notEmpty: {
+										message: 'Name is required.'
+									},
+									stringLength: {
+										max: 64,
+										message: 'Is your name really that long?'
+									}
+								}
+							},
+							email: {
+								message: 'Please enter your email.',
+								validators: {
+									notEmpty: {
+										message: 'Email is required.'
+									},
+									emailAddress: {
+										message: 'Please enter a valid email.'
+									}
+								}
+							},
+							subject: {
+								message: 'Please select a subject.',
+								validators: {
+									notEmpty: {
+										message: 'Please select a subject.'
+									}
+								}
+							},
+							message: {
+								message: 'Please enter your message.',
+								validators: {
+									notEmpty: {
+										message: 'Message is required.'
+									}
+								}
+							}
+						},
+						submitHandler: function(){
+							var form = pg.find("#frmContact");
+							var inputs = pg.find("#frmContact :input");
+							var buttonIcon = pg.find("#frmContact button[type='submit'] i");
+
+							inputs.prop("disabled", true);
+							buttonIcon.removeClass("fa-paper-plane-o").addClass("fa-spin fa-spinner");
+
+							$.ajax({
+								type: "POST",
+								url: app.apiURL+"contact",
+								data: {
+									name: 	 form.find(":input[name='name']").val(), 
+									email: 	 form.find(":input[name='email']").val(),
+									subject: form.find(":input[name='subject']").val(),
+									message: form.find(":input[name='message']").val()
+								},
+								success: function(data){
+									//console.log(data);
+									buttonIcon.removeClass("fa-spin fa-spinner").addClass("fa-paper-plane-o");
+
+									if(data.sent){
+										//the email was sent
+										buttonIcon.parent('button').html("Sent!");
+										form.animate({
+										    marginTop: "-500px",
+										    opacity: "0"
+										  }, 1000, function() {
+										    // Animation complete.
+										    $(".alert-success").fadeIn("fast");
+										  });
+
+									} else {
+										buttonIcon.removeClass("fa-spin fa-spinner").addClass("fa-paper-plane-o");
+										inputs.prop("disabled", false);
+									}
+								},
+								dataType: "json"
+							});
+						}
+					});
+
 					nload.css("visibility","hidden");
 				});
 			break;
