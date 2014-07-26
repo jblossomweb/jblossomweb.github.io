@@ -192,3 +192,9 @@ font-size: 24px;
 	margin-top: -50px;
 }
 }
+
+#contact-ajax-error{
+  color:#e74c3c;
+  line-height: 42px;
+  padding-right: 24px;
+}

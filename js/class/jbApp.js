@@ -210,18 +210,6 @@ jbApp.prototype.loadPage = function(page){
 							inputs.prop("disabled", true);
 							buttonIcon.removeClass("fa-paper-plane-o").addClass("fa-spin fa-spinner");
 
-
-							var thedata = {
-									name: 	 form.find(":input[name='name']").val(), 
-									email: 	 form.find(":input[name='email']").val(),
-									subject: form.find(":input[name='subject']").val(),
-									message: form.find(":input[name='message']").val()
-								};
-
-							console.log(thedata.name);
-							console.log(thedata.email);
-							console.log(thedata.subject);
-							console.log(thedata.message);
 							$.support.cors = true;
 							$.ajax({
 								crossDomain : true,
@@ -260,6 +248,7 @@ jbApp.prototype.loadPage = function(page){
 									inputs.prop("disabled", false);
 						            console.log('ajax fail');
 						            console.log(JSON.stringify(jqxhr));
+						            $("#contact-ajax-error").html(jqxhr.statusText);
 						        },
 								dataType: "json"
 							});
