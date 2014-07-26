@@ -211,6 +211,7 @@ jbApp.prototype.loadPage = function(page){
 							buttonIcon.removeClass("fa-paper-plane-o").addClass("fa-spin fa-spinner");
 
 							$.support.cors = true;
+
 							$.ajax({
 								crossDomain : true,
         						cache: false,
@@ -241,6 +242,7 @@ jbApp.prototype.loadPage = function(page){
 										buttonIcon.removeClass("fa-spin fa-spinner").addClass("fa-paper-plane-o");
 										inputs.prop("disabled", false);
 										console.log('did not send email.');
+										$("#contact-ajax-error").html('Email error.');
 									}
 								},
 								error: function(jqxhr) {
