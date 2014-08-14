@@ -279,7 +279,7 @@ jbApp.prototype.loadPage = function(page){
 				         $("#template-quotes").html(template).cycle({
 						        	slides: 	'> div',
 						        	fx: 		'fade',
-						        	speed: 		'10000', 
+						        	speed: 		'30000', 
 						 });
 						 homeload.push('testimonials');;
 						 if(homeload.length > 1){
