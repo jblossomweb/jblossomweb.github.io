@@ -25,12 +25,17 @@ h1{
 	display:none;
 }
 
-#template-quotes .quote{
+#template-quotes .quote,
+#template-testimonials .quote{
 	width:100%;
 }
 
 #template-quotes blockquote{
 	font-size:.8em;
+}
+
+#template-testimonials blockquote{
+	font-size:.9em;
 }
 
 .circle-logo-32{

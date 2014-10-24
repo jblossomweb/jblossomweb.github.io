@@ -260,6 +260,14 @@ jbApp.prototype.loadPage = function(page){
 					nload.css("visibility","hidden");
 				});
 			break;
+			case 'testimonials':
+				$.get(app.apiURL+"resume/testimonials", function(data) {
+					app.getTemplate('templates/quotes.html', data, function(template) {
+						$("#template-testimonials").html(template);
+						nload.css("visibility","hidden");
+					});
+				}, "json");
+			break;
 			case 'home':
 			default:
 				var homeload = this.homeload;
@@ -281,7 +289,7 @@ jbApp.prototype.loadPage = function(page){
 						        	fx: 		'fade',
 						        	speed: 		'30000', 
 						 });
-						 homeload.push('testimonials');;
+						 homeload.push('testimonials');
 						 if(homeload.length > 1){
 							nload.css("visibility","hidden");
 						}
