@@ -203,3 +203,20 @@ font-size: 24px;
   line-height: 42px;
   padding-right: 24px;
 }
+
+.portfolio .thumb{
+	border:1px solid transparent;
+}
+
+.portfolio .thumb:hover{
+	border:1px solid #0ce3ac;
+}
+
+.portfolio .caption{
+	margin-bottom:32px;
+	height:120px;
+}
+
+.portfolio .caption p{
+	font-size: .8em;
+}

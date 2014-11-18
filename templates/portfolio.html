@@ -1,0 +1,18 @@
+<div class="container portfolio">
+	<div class="row">
+		{{#each this}}
+		<div class="col-md-4">
+			<div class="thumb">
+				<a href="{{url}}" target="_blank"><img width="100%" src="img/{{img}}"></a>
+			</div>
+			<div class="caption">
+				<h4><a href="{{url}}" target="_blank">{{title}}</a></h4>
+				<p>{{desc}}</p>
+				{{#if url2}}
+				<p><a href="{{url2}}" target="_blank">Read More</a></p>
+				{{/if}}
+			</div>
+		</div>
+		{{/each}}
+	</div>
+</div>

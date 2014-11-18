@@ -262,8 +262,17 @@ jbApp.prototype.loadPage = function(page){
 			break;
 			case 'testimonials':
 				$.get(app.apiURL+"resume/testimonials", function(data) {
-					app.getTemplate('templates/quotes.html', data, function(template) {
+					app.getTemplate('templates/testimonials.html', data, function(template) {
 						$("#template-testimonials").html(template);
+						nload.css("visibility","hidden");
+					});
+				}, "json");
+			break;
+			case 'portfolio':
+				$.get(app.apiURL+"resume/portfolio", function(data) {
+					console.log(data);
+					app.getTemplate('templates/portfolio.html', data, function(template) {
+						$("#template-portfolio").html(template);
 						nload.css("visibility","hidden");
 					});
 				}, "json");
@@ -272,7 +281,7 @@ jbApp.prototype.loadPage = function(page){
 			default:
 				var homeload = this.homeload;
 
-				 $.get(app.apiURL+"resume/portfolio", function(data) {
+				 $.get(app.apiURL+"resume/featured_portfolio", function(data) {
 					app.getTemplate('templates/carousel.html', {items:data}, function(template) {
 						$("#template-carousel").html(template);
 						homeload.push('portfolio');
