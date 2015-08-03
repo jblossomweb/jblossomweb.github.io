@@ -118,6 +118,9 @@ div.skill a img{
 		padding: 0px;
 		margin-top: -36px;
 	}
+	.carousel-indicators{
+		display:none;
+	}
 }
 
 #template-navbar{

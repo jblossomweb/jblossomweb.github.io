@@ -286,7 +286,11 @@ jbApp.prototype.loadPage = function(page){
 						$("#template-carousel").html(template);
 						$(".carousel").carousel({
 				      interval: 5000
-				    });
+				    }).swiperight(function() {  
+				    	$(this).carousel('prev');  
+					  }).swipeleft(function() {  
+						  $(this).carousel('next');  
+					  });
 						homeload.push('portfolio');
 						if(homeload.length > 1){
 							nload.css("visibility","hidden");
