@@ -284,6 +284,9 @@ jbApp.prototype.loadPage = function(page){
 				 $.get(app.apiURL+"resume/featured_portfolio", function(data) {
 					app.getTemplate('templates/carousel.html', {items:data}, function(template) {
 						$("#template-carousel").html(template);
+						$(".carousel").carousel({
+				      interval: 5000
+				    });
 						homeload.push('portfolio');
 						if(homeload.length > 1){
 							nload.css("visibility","hidden");
@@ -296,7 +299,9 @@ jbApp.prototype.loadPage = function(page){
 				         $("#template-quotes").html(template).cycle({
 						        	slides: 	'> div',
 						        	fx: 		'fade',
-						        	speed: 		'30000', 
+						        	speed: 		400,
+						        	timeout: 9600,
+						        	delay: 350 
 						 });
 						 homeload.push('testimonials');
 						 if(homeload.length > 1){
