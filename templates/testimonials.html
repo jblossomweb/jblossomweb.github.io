@@ -1,13 +1,27 @@
 {{#this}}
-<div class="quote">
-<blockquote class="pull-right">
-	<p>
-		<i class="fa fa-quote-left fa-2x pull-left"></i>
-		<p>
-		{{quote}}
-		</p>
-		<i class="fa fa-quote-right fa-2x pull-right"></i>
-	</p> <small>{{name}}</small>
-</blockquote>
+<div class="row testimonial">
+	<div class="quote col-md-10 col-sm-10 col-xs-10">
+		<blockquote class="pull-right">
+			<p>
+				<i class="fa fa-quote-left fa-2x pull-left"></i>
+				<p>
+				{{quote}}
+				</p>
+				<i class="fa fa-quote-right fa-2x pull-right"></i>
+			</p>
+		</blockquote>
+	</div>
+	<div class="linked col-md-2 col-sm-2 col-xs-2">
+		<a target="_blank" href="{{link}}" class="person-thumb">
+			<span class="circle-logo-64" style="background-image: url({{imageUrl}});"></span>
+		</a>
+		<small class="first"><a target="_blank" href="{{link}}">{{name}}</a></small>
+		<small>{{title}}</small>
+		<div class="companyImage">
+			<a target="_blank" href="{{link}}">
+				<img src="img/logos/{{companyImg}}" alt="{{company}}" />
+			</a>
+		</div>
+	</div>
 </div>
 {{/this}}

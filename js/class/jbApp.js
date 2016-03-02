@@ -142,6 +142,7 @@ jbApp.prototype.loadPage = function(page){
 										imgs.load(function() {
 											spinner.css("visibility","hidden");
 											panel.collapse('show');
+											pbody.find(".techs").delay(300).slideDown("slow");
 										});
 									});
 								},"json");

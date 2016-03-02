@@ -27,7 +27,7 @@ h1{
 
 #template-quotes .quote,
 #template-testimonials .quote{
-	width:100%;
+	/*width:100%;*/
 }
 
 #template-quotes blockquote{
@@ -38,6 +38,40 @@ h1{
 	font-size:.9em;
 }
 
+#template-testimonials .testimonial {
+	min-height:180px;
+	position:relative;
+}
+
+#template-testimonials .testimonial small {
+	font-size:9px;
+	display: block;
+	width: 100px;
+    text-align: center;
+    margin-top: 2px;
+    margin-left: -18px;
+}
+
+#template-testimonials .testimonial small.first {
+	margin-top:18px;
+	font-size:12px;
+}
+
+#template-testimonials .testimonial .person-thumb {
+	display:block;
+	margin-top:28px;
+}
+
+#template-testimonials .testimonial .companyImage {
+	position:absolute;
+	top: 66px;
+    left: 14px;
+}
+
+#template-testimonials .testimonial .companyImage img {
+	width:64px;
+}
+
 .circle-logo-32{
 	background-image: url(//lh6.googleusercontent.com/-1DhBDxNbYhY/AAAAAAAAAAI/AAAAAAAAAAA/gAdqpWtOPYA/s32-c/photo.jpg);
 	background-size: 32px 32px;
@@ -46,6 +80,15 @@ h1{
 	margin: -1px;
 	height: 32px;
 	width: 32px;
+}
+
+.circle-logo-64{
+	background-size: 64px 64px;
+	border-radius: 50%;
+	display: block;
+	margin: -1px;
+	height: 64px;
+	width: 64px;
 }
 
 .navbar-default {
@@ -109,6 +152,10 @@ div.skill a img{
 	padding: 9px 10px;
 	margin-top: 13px;
 	background-color: transparent;
+}
+
+@media (max-width: 991px) {
+	
 }
 
 /* Landscape phone to portrait tablet */
@@ -235,4 +282,9 @@ font-size: 24px;
 #page-experience .logo {
 	font-size:9px;
 	text-align: center;
+}
+
+#page-experience .techs {
+	/*opacity: 0;*/
+	display: none;
 }
