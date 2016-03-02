@@ -66,6 +66,8 @@ jbApp.prototype.loadPage = function(page){
 						var dots = anchor.find(".dots");
 						app.initDots(dots,4,150);
 
+
+
 						// $("#skills-accordion .panel-title, .panel-title a").click(function(e){
 						// 	e.preventDefault();
 						// });
@@ -102,6 +104,8 @@ jbApp.prototype.loadPage = function(page){
 						});
 
 						nload.css("visibility","hidden");
+
+						$("#skills-accordion .panel:first-child .panel-heading").click();
 
 					});
 				}, "json");
@@ -147,6 +151,8 @@ jbApp.prototype.loadPage = function(page){
 						});
 
 						nload.css("visibility","hidden");
+
+						$("#experience-accordion .panel:first-child .panel-heading").click();
 					});
 				},"json");
 			break;
