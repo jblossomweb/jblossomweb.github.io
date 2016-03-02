@@ -39,6 +39,12 @@ jbApp.prototype.defineEvents = function(){
 		}
 		app.Navigate(href);
 	});
+
+	$(document).on('click','.navbar-collapse.in',function(e) {
+	    if( $(e.target).is('a') && $(e.target).attr('class') != 'dropdown-toggle' ) {
+	        $(this).collapse('hide');
+	    }
+	});
 };
 jbApp.prototype.Navigate = function(page,callback){
 	this.loadPage(page);
