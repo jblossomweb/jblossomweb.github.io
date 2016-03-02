@@ -154,27 +154,6 @@ div.skill a img{
 	background-color: transparent;
 }
 
-@media (max-width: 480px) {
-	.panel-title {
-		font-size:12px;
-	}
-	.panel-body {
-		font-size:11px;
-	}
-}
-
-/* Landscape phone to portrait tablet */
-@media (max-width: 767px) {
-	.navbar-load{
-		margin-right:58px;
-		padding: 0px;
-		margin-top: -36px;
-	}
-	.carousel-indicators{
-		display:none;
-	}
-}
-
 #template-navbar{
 	margin-top:-80px;
 }
@@ -247,11 +226,6 @@ font-size: 24px;
 	display:none;
 	margin-top:200px;
 }
-@media only screen and (max-width : 991px) {
-.contact-form .alert-success{
-	margin-top: -50px;
-}
-}
 
 #contact-ajax-error{
   color:#e74c3c;
@@ -292,4 +266,34 @@ font-size: 24px;
 #page-experience .techs {
 	/*opacity: 0;*/
 	display: none;
+}
+
+@media (max-width: 480px) {
+	.panel-title {
+		font-size:12px;
+	}
+	.panel-body {
+		font-size:11px;
+	}
+	#page-experience .techs .tech a img {
+		width:24px;
+	}
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+	.navbar-load{
+		margin-right:58px;
+		padding: 0px;
+		margin-top: -36px;
+	}
+	.carousel-indicators{
+		display:none;
+	}
+}
+
+@media only screen and (max-width : 991px) {
+.contact-form .alert-success{
+	margin-top: -50px;
+}
 }
