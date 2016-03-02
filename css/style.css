@@ -223,3 +223,16 @@ font-size: 24px;
 .portfolio .caption p{
 	font-size: .8em;
 }
+
+#page-experience .techs .tech {
+	text-align:center;
+	font-size:8px !important;
+}
+#page-experience .techs .tech a img {
+	width:40px;
+}
+
+#page-experience .logo {
+	font-size:9px;
+	text-align: center;
+}
