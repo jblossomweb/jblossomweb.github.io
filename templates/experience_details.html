@@ -1,11 +1,11 @@
 <div class="row">
-	<div class="col-md-1 logo">
+	<div class="col-md-1 col-sm-1 logo">
 		<a href="{{url}}" target="_blank">
 			<img src="img/logos/{{img}}" alt="{{company}}" title="{{company}}" />
 		</a>
 		<br>{{city}}, {{state}}
 	</div>
-	<div class="col-md-11 bullets">
+	<div class="col-md-11 col-sm-11 bullets">
 		<ul>
 			{{#each bullets}}
 			<li>{{text}}</li>
@@ -14,10 +14,10 @@
 	</div>
 </div>
 <div class="row">
-	<div class="col-md-1 logo"></div>
-	<div class="col-md-11 techs">
+	<div class="col-md-1 col-sm-1 col-xs-1 logo"></div>
+	<div class="col-md-11 col-sm-11 col-xs-11 techs">
 		{{#each techs}}
-		<div class="col-md-1 tech skill">
+		<div class="col-md-1 col-sm-1 col-xs-2 tech skill">
 		  <a target="_blank" href="{{url}}">
 		    <img src="img/logos/{{logo}}" alt="{{tech}}" title="{{tech}}" />
 		  </a>
