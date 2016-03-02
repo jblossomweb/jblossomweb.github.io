@@ -154,8 +154,13 @@ div.skill a img{
 	background-color: transparent;
 }
 
-@media (max-width: 991px) {
-	
+@media (max-width: 480px) {
+	.panel-title {
+		font-size:12px;
+	}
+	.panel-body {
+		font-size:11px;
+	}
 }
 
 /* Landscape phone to portrait tablet */
