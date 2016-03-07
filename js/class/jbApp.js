@@ -283,10 +283,50 @@ jbApp.prototype.loadPage = function(page){
 			break;
 			case 'portfolio':
 				$.get(app.apiURL+"resume/portfolio", function(data) {
-					console.log(data);
 					app.getTemplate('templates/portfolio.html', data, function(template) {
 						$("#template-portfolio").html(template);
 						nload.css("visibility","hidden");
+
+						//tabs
+						var activeTab = null;
+						$(".portfolio-tabs button").click(function(){
+							$(".portfolio-tabs button").removeClass("btn-info").addClass("btn-primary");
+							$(this).addClass("btn-info");
+							var tab = $(this).data('tab');
+							activeTab = tab;
+							$(".portfolio-item").hide();
+							$(".portfolio-item[data-tab='"+tab+"']").fadeIn("fast");
+						});
+
+						//search
+						var searchTimeout = null;
+						var findMember = function(text) {
+							$(".portfolio-tabs").hide();
+							$(".portfolio-item").hide();
+							$(".portfolio-item:contains("+text+")").fadeIn("fast");
+						};
+
+						$(".portfolio-search a.search-clear").click(function(){
+							$(".portfolio-search input").val("").keyup();
+						});
+
+						$(".portfolio-search input").keyup(function(){
+							clearTimeout(searchTimeout);
+							var text = $(this).val();
+							if(text.length) {
+								$(".portfolio-search a.search-clear").removeClass("hide");
+								searchTimeout = setTimeout(function() {
+									findMember(text);
+								}, 500);
+							} else {
+								$(".portfolio-search a.search-clear").addClass("hide");
+								$(".portfolio-tabs button[data-tab='"+activeTab+"']").click();
+								$(".portfolio-tabs").show();
+							}
+						});
+
+						//init tab
+						$(".portfolio-tabs button[data-tab='sports']").click();
 					});
 				}, "json");
 			break;

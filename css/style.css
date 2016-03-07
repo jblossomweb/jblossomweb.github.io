@@ -250,6 +250,44 @@ font-size: 24px;
 	font-size: .8em;
 }
 
+.portfolio .search {
+	position:relative;
+}
+
+.portfolio .tabs-search {
+	margin-bottom:24px;
+}
+
+.portfolio .search label{
+	position: absolute;
+    left: 17px;
+    top: 12px;
+	display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #7B7B7B;
+    z-index: 10;
+}
+
+.portfolio .search input{
+	padding: 10px 38px !important;
+    font-size: 15px;
+    line-height: 1.42857143 !important;
+    border-radius: 4px !important;
+    height:43px !important;
+}
+
+.portfolio .search a.search-clear {
+	text-decoration: none;
+    position: absolute;
+    right: 18px;
+    top: 14px;
+    color: #b3b3b3;
+    background: transparent;
+    z-index: 10;
+}
+
 #page-experience .techs .tech {
 	text-align:center;
 	font-size:8px !important;

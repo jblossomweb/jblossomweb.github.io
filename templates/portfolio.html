@@ -1,7 +1,20 @@
 <div class="container portfolio">
 	<div class="row">
+		<div class="col-md-4 col-sm-6 col-xs-12 pull-left tabs-search portfolio-tabs">
+			<button class="btn btn-primary" data-tab="sports">Sports</button>
+			<button class="btn btn-primary" data-tab="other">More</button>
+		</div>
+		<div class="col-md-7 col-sm-6 col-xs-12 pull-right tabs-search portfolio-search">
+			<div class="input-group search">
+				<label for="search-portfolio"><i class="fa fa-search">&nbsp;</i></label>
+				<input id="search-portfolio" class="form-control input-lg" placeholder="Search" autocomplete="off" spellcheck="false" autocorrect="off" tabindex="1">
+				<a id="search-portfolio-clear" style="cursor:pointer;" class="fa fa-times-circle search-clear hide"></a>
+			</div>
+		</div>
+	</div>
+	<div class="row">
 		{{#each this}}
-		<div class="col-md-4 col-sm-6 col-xs-12">
+		<div class="col-md-4 col-sm-6 col-xs-12 portfolio-item" data-tab="{{tab}}">
 			<div class="thumb">
 				<a href="{{url}}" target="_blank"><img width="100%" src="img/{{img}}"></a>
 			</div>
