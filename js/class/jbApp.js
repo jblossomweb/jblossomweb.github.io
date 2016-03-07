@@ -37,6 +37,7 @@ jbApp.prototype.defineEvents = function(){
 			$("ul.navbar-nav li").removeClass("active");
 			li.addClass("active");
 		}
+		console.log(href);
 		app.Navigate(href);
 	});
 
@@ -46,16 +47,27 @@ jbApp.prototype.defineEvents = function(){
 	    }
 	});
 };
-jbApp.prototype.Navigate = function(page,callback){
-	this.loadPage(page);
+jbApp.prototype.Navigate = function(href,callback){
+	var page = href;
+	var container = null;
+	var array = href.split("/");
+	if(array.length > 1) {
+		page = array[0];
+		var id = array[1];
+		this.loadPage(page, id);
+		container = page + "-details"; // convention
+	} else {
+		this.loadPage(page, null);
+		container = page;
+	}
 	$(".page").hide();
 	if(typeof callback !== "undefined"){
-		$("#page-"+page).fadeIn("500",callback);
+		$("#page-"+container).fadeIn("500",callback);
 	} else {
-		$("#page-"+page).fadeIn("500");
+		$("#page-"+container).fadeIn("500");
 	}
 };
-jbApp.prototype.loadPage = function(page){
+jbApp.prototype.loadPage = function(page, id){
 	var app = this;
 	if($.inArray(page,app.loaded) === -1){
 		var nload = $("#template-navbar").find(".navbar-load");
@@ -338,6 +350,26 @@ jbApp.prototype.loadPage = function(page){
 					});
 				}, "json");
 			break;
+			case 'demos':
+				$.get(app.apiURL+"resume/demos", function(data) {
+					app.getTemplate('templates/demos.html', data, function(template) {
+						$("#template-demos").html(template);
+						nload.css("visibility","hidden");
+					});
+				}, "json");
+			break;
+			case 'demo':
+				console.log('demo');
+				console.log(id);
+				if(id) {
+					$.get(app.apiURL+"resume/demos/"+id, function(data) {
+						app.getTemplate('templates/demo_details.html', data, function(template) {
+							$("#template-demo-details").html(template);
+							nload.css("visibility","hidden");
+						});
+					}, "json");
+				}
+			break;
 			case 'home':
 			default:
 				var homeload = this.homeload;
@@ -374,8 +406,9 @@ jbApp.prototype.loadPage = function(page){
 
 
 		}
-		app.loaded.push(page);
-		//
+		if(!id) {
+			app.loaded.push(page);
+		}
 	}
 };
 jbApp.prototype.getTemplate = function(url, context, callback) {

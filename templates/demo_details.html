@@ -1,0 +1,53 @@
+<div class="container demos">
+	<div class="row demo-item">
+		<div class="col-md-8 col-sm-6 col-xs-12 demo-item">
+			<div class="caption">
+				<p>
+					<a class="ajax-link" href="demos">
+						<i class="fa fa-arrow-circle-left">&nbsp;&nbsp;back to Demos</i>
+					</a>
+				</p>
+				<h3>{{name}}</h4>
+				<p>{{desc}}</p>
+				{{#if given}}
+				<h4>Given:</h4>
+				<p>{{given}}</p>
+				{{/if}}
+				{{#if task}}
+				<h4>The Task:</h4>
+				<p>{{task}}</p>
+				{{/if}}
+				{{#if task}}
+				<h4>Extras:</h4>
+				<p>{{extras}}</p>
+				{{/if}}
+				{{#if instructions}}
+				<h4>Instructions:</h4>
+				<p>{{instructions}}</p>
+				{{/if}}
+				{{#if notes}}
+				<h4>Notes:</h4>
+				<p>{{notes}}</p>
+				{{/if}}
+				<p style="margin-top:28px">
+					<a class="btn btn-info" href="{{demoUrl}}" target="_blank">
+						<i class="fa fa-desktop"></i>&nbsp;&nbsp;Demo
+					</a>
+					{{#if repoUrl}}
+					<a class="btn btn-primary" href="{{repoUrl}}" target="_blank">
+						<i class="fa fa-{{repoType}}"></i>&nbsp;&nbsp;Code
+					</a>
+					{{/if}}
+				</p>
+			</div>
+		</div>
+		<div class="col-md-4 col-sm-6 col-xs-12 demo-item">
+			<div class="thumb">
+				<a href="{{url}}" target="_blank"><img width="100%" src="img/demos/{{imgUrl}}"></a>
+			</div>
+			<div class="thumb">
+				<a href="{{url}}" target="_blank"><img width="100%" src="img/demos/{{imgUrl2}}"></a>
+			</div>
+		</div>
+	</div>
+</div>

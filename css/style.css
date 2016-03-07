@@ -306,6 +306,10 @@ font-size: 24px;
 	display: none;
 }
 
+.demo-item .thumb {
+	margin-bottom:12px;
+}
+
 @media (max-width: 480px) {
 	.panel-title {
 		font-size:12px;
@@ -328,10 +332,19 @@ font-size: 24px;
 	.carousel-indicators{
 		display:none;
 	}
+	.navbar-nav {
+		font-size:15px;
+	}
 }
 
 @media only screen and (max-width : 991px) {
 .contact-form .alert-success{
 	margin-top: -50px;
+}
+}
+
+@media only screen and (min-width: 768px) and (max-width : 991px) {
+.navbar-nav {
+	font-size:12px;
 }
 }
