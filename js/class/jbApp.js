@@ -300,10 +300,18 @@ jbApp.prototype.loadPage = function(page){
 
 						//search
 						var searchTimeout = null;
+						var searchItemsFor = function(text) {
+							$(".portfolio-item:contains("+text+")").fadeIn("fast");
+						};
 						var findMember = function(text) {
 							$(".portfolio-tabs").hide();
 							$(".portfolio-item").hide();
-							$(".portfolio-item:contains("+text+")").fadeIn("fast");
+							searchItemsFor(text);
+							searchItemsFor(text.toLowerCase());
+							searchItemsFor(text.toUpperCase());
+							if(String.prototype.ucwords) {
+								searchItemsFor(text.ucwords());	
+							}
 						};
 
 						$(".portfolio-search a.search-clear").click(function(){
