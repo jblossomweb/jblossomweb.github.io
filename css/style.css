@@ -306,6 +306,10 @@ font-size: 24px;
 	display: none;
 }
 
+.demo-item {
+	font-size:12px;
+}
+
 .demo-item .thumb {
 	margin-bottom:12px;
 }
