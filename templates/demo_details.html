@@ -42,12 +42,16 @@
 			</div>
 		</div>
 		<div class="col-md-4 col-sm-6 col-xs-12 demo-item">
+			{{#if imgUrl}}
 			<div class="thumb">
 				<a href="{{demoUrl}}" target="_blank"><img width="100%" src="img/demos/{{imgUrl}}"></a>
 			</div>
+			{{/if}}
+			{{#if imgUrl2}}
 			<div class="thumb">
 				<a href="{{demoUrl}}" target="_blank"><img width="100%" src="img/demos/{{imgUrl2}}"></a>
 			</div>
+			{{/if}}
 		</div>
 	</div>
 </div>
