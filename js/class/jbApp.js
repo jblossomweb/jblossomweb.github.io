@@ -80,9 +80,11 @@ jbApp.prototype.loadPage = function(page, id){
 						var container = $("#template-skills");
 						container.html(template);
 						var anchor = container.find("a[href='#skills-accordion-learning']");
-						anchor.html(anchor.html().replace("...","<span class='dots'></span>"));
-						var dots = anchor.find(".dots");
-						app.initDots(dots,4,150);
+						if(anchor) {
+							anchor.html(anchor.html().replace("...","<span class='dots'></span>"));
+							var dots = anchor.find(".dots");
+							app.initDots(dots,4,150);
+						}
 
 
 
