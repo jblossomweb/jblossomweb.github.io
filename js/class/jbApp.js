@@ -1,6 +1,7 @@
 var jbApp = function() {
   // constructor
   this.apiURL = jbzzle_api_url; //global set in api.js
+  this.cdnBase = jblossom_io_images; //global set in api.js
   this.loaded = [];
   this.homeload = [];
   this.defineEvents();
@@ -414,11 +415,12 @@ jbApp.prototype.loadPage = function(page, id){
 	}
 };
 jbApp.prototype.getTemplate = function(url, context, callback) {
+		context.cdnBase = this.cdnBase;
     $.ajax({
         url: url,
             success: function(source) {
                 var tmpl = Handlebars.compile(source);
-                var html    = tmpl(context);  
+                var html    = tmpl(context);
                 if (callback) callback(html);
         }
     });
