@@ -1,7 +1,8 @@
-var jbApp = function() {
+var jbApp = function(cacheBust) {
   // constructor
   this.apiURL = jbzzle_api_url; //global set in api.js
   this.cdnBase = jblossom_io_images; //global set in api.js
+  this.cacheBust = cacheBust;
   this.loaded = [];
   this.homeload = [];
   this.defineEvents();
@@ -415,9 +416,9 @@ jbApp.prototype.loadPage = function(page, id){
 	}
 };
 jbApp.prototype.getTemplate = function(url, context, callback) {
-		context.cdnBase = this.cdnBase;
+		context.cdnBase = this.cdnBase || 'img/';
     $.ajax({
-        url: url,
+        url: url + '?cb=' + this.cacheBust,
             success: function(source) {
                 var tmpl = Handlebars.compile(source);
                 var html    = tmpl(context);
