@@ -8,7 +8,7 @@
 	<div class="carousel-inner">
 	{{#each items}}
 	<div class="item {{#if @first}}active{{/if}}">
-		<a href="{{url}}" target="_blank"><img src="img/{{img}}"></a>
+		<a href="{{url}}" target="_blank"><img src="{{../cdnbase}}{{img}}"></a>
 	</div>
 	{{/each}}
 	</div> 

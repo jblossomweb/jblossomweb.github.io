@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-md-1 col-sm-1 logo">
 		<a href="{{url}}" target="_blank">
-			<img src="img/logos/{{img}}" alt="{{company}}" title="{{company}}" />
+			<img src="{{cdnbase}}logos/{{img}}" alt="{{company}}" title="{{company}}" />
 		</a>
 		<br>{{city}}, {{state}}
 	</div>
@@ -19,7 +19,7 @@
 		{{#each techs}}
 		<div class="col-md-1 col-sm-1 col-xs-2 tech skill">
 		  <a target="_blank" href="{{url}}">
-		    <img src="img/logos/{{logo}}" alt="{{tech}}" title="{{tech}}" />
+		    <img src="{{../cdnbase}}logos/{{logo}}" alt="{{tech}}" title="{{tech}}" />
 		  </a>
 		  <!-- <br>{{tech}} -->
 		</div>

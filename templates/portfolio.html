@@ -13,10 +13,10 @@
 		</div>
 	</div>
 	<div class="row">
-		{{#each this}}
+		{{#each portfolio}}
 		<div class="col-md-4 col-sm-6 col-xs-12 portfolio-item" data-tab="{{tab}}">
 			<div class="thumb">
-				<a href="{{url}}" target="_blank"><img width="100%" src="img/{{img}}"></a>
+				<a href="{{url}}" target="_blank"><img width="100%" src="{{../cdnbase}}{{img}}"></a>
 			</div>
 			<div class="caption">
 				<h4><a href="{{url}}" target="_blank">{{title}}</a></h4>

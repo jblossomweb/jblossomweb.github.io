@@ -39,7 +39,7 @@ jbApp.prototype.defineEvents = function(){
 			$("ul.navbar-nav li").removeClass("active");
 			li.addClass("active");
 		}
-		console.log(href);
+		// console.log(href);
 		app.Navigate(href);
 	});
 
@@ -291,7 +291,7 @@ jbApp.prototype.loadPage = function(page, id){
 			break;
 			case 'testimonials':
 				$.get(app.apiURL+"resume/testimonials", function(data) {
-					app.getTemplate('templates/testimonials.html', data, function(template) {
+					app.getTemplate('templates/testimonials.html', {testimonials: data}, function(template) {
 						$("#template-testimonials").html(template);
 						nload.css("visibility","hidden");
 					});
@@ -299,7 +299,7 @@ jbApp.prototype.loadPage = function(page, id){
 			break;
 			case 'portfolio':
 				$.get(app.apiURL+"resume/portfolio", function(data) {
-					app.getTemplate('templates/portfolio.html', data, function(template) {
+					app.getTemplate('templates/portfolio.html', {portfolio: data}, function(template) {
 						$("#template-portfolio").html(template);
 						nload.css("visibility","hidden");
 
@@ -356,7 +356,7 @@ jbApp.prototype.loadPage = function(page, id){
 			break;
 			case 'demos':
 				$.get(app.apiURL+"resume/demos", function(data) {
-					app.getTemplate('templates/demos.html', data, function(template) {
+					app.getTemplate('templates/demos.html', {demos: data}, function(template) {
 						$("#template-demos").html(template);
 						nload.css("visibility","hidden");
 					});
@@ -416,7 +416,7 @@ jbApp.prototype.loadPage = function(page, id){
 	}
 };
 jbApp.prototype.getTemplate = function(url, context, callback) {
-		context.cdnBase = this.cdnBase || 'img/';
+		context.cdnbase = this.cdnBase || 'img/';
     $.ajax({
         url: url + '?cb=' + this.cacheBust,
             success: function(source) {

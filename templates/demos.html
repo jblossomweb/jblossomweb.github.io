@@ -1,9 +1,9 @@
 <div class="container demos">
 	<div class="row">
-		{{#each this}}
+		{{#each demos}}
 		<div class="col-md-12 demo-item">
 			<div class="col-md-3 col-sm-4 col-xs-6 thumb">
-				<a class="ajax-link" href="demo/{{id}}"><img width="100%" src="img/demos/{{imgUrl}}"></a>
+				<a class="ajax-link" href="demo/{{id}}"><img width="100%" src="{{../cdnbase}}demos/{{imgUrl}}"></a>
 			</div>
 			<div class="col-md-9 col-sm-8 col-xs-6 caption">
 				<h4><a class="ajax-link" href="demo/{{id}}">{{name}}</a></h4>
