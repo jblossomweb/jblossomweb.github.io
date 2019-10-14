@@ -363,8 +363,6 @@ jbApp.prototype.loadPage = function(page, id){
 				}, "json");
 			break;
 			case 'demo':
-				console.log('demo');
-				console.log(id);
 				if(id) {
 					$.get(app.apiURL+"resume/demos/"+id, function(data) {
 						app.getTemplate('templates/demo_details.html', data, function(template) {
@@ -386,7 +384,7 @@ jbApp.prototype.loadPage = function(page, id){
 				    });
 
 						homeload.push('portfolio');
-						if(homeload.length > 1){
+						if(homeload.length > 2){
 							nload.css("visibility","hidden");
 						}
 					});
@@ -402,10 +400,20 @@ jbApp.prototype.loadPage = function(page, id){
 						        	delay: 350 
 						 });
 						 homeload.push('testimonials');
-						 if(homeload.length > 1){
+						 if(homeload.length > 2){
 							nload.css("visibility","hidden");
 						}
 				    });
+				}, "json");
+
+				$.get(app.apiURL+"resume/featured_skills", function(data) {
+					app.getTemplate('templates/featured_skills.html', {items:data}, function(template) {
+						$("#template-featured-skills").html(template);
+						homeload.push('featured_skills');
+						if(homeload.length > 2){
+							nload.css("visibility","hidden");
+						}
+					});
 				}, "json");
 
 
