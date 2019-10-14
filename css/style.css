@@ -326,12 +326,6 @@ font-size: 24px;
 	}
 }
 
-@media only screen and (max-width: 420px) {
-	#template-featured-skills {
-		display: none !important;
-	}
-}
-
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
 	.navbar-load{
@@ -348,9 +342,12 @@ font-size: 24px;
 }
 
 @media only screen and (max-width : 991px) {
-.contact-form .alert-success{
-	margin-top: -50px;
-}
+	.contact-form .alert-success{
+		margin-top: -50px;
+	}
+	#template-featured-skills {
+		display: none !important;
+	}
 }
 
 @media only screen and (min-width: 768px) and (max-width : 991px) {
