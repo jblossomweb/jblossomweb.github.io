@@ -408,7 +408,7 @@ jbApp.prototype.loadPage = function(page, id){
 
 				$.get(app.apiURL+"resume/featured_skills", function(data) {
 					app.getTemplate('templates/featured_skills.html', {items:data}, function(template) {
-						$("#template-featured-skills").html(template);
+						$("#template-featured-skills").html(template).fadeIn(3000);
 						homeload.push('featured_skills');
 						if(homeload.length > 2){
 							nload.css("visibility","hidden");
